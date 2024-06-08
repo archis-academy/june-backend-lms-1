@@ -24,11 +24,16 @@ public class Main {
         }
     }
 
-    private static void printBooks(String title, String author, String bookId, String pageNumber) {
+    public static void printBooks(String title, String author, String bookId, String pageNumber) {
         System.out.println("Book Title: " + title);
         System.out.println("Book Author: " + author);
         System.out.println("Book ID: " + bookId);
         System.out.println("Book Page Number: " + pageNumber);
     }
-   
+
+    //Total number of books
+    public static void countTotalBooks() {
+        System.out.println("Total number of books :" + bookQuantity);
+    }
+    
 }
