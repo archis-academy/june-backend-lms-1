@@ -114,23 +114,15 @@ public class Main {
         }
     }
 
-    public static void deleteBook(String title, String author, String bookId, String additionalDoc) {
-        int temp = -1, i;
-        for (i = 0; i < bookQuantity; i++) {
-            if (books[i][0].equals(title) || books[i][2].equals(bookId)) {
-                books[i][0] = "";
-                books[i][1] = "";
-                books[i][2] = "";
-                books[i][3] = "";
-                System.out.println("Book delete transaction successful");
-                temp = i;
-            }
+    public static void deleteBook(String bookId) {
+        int temp = 0;
+        if (bookQuantity > 0) {
             truncateBooksArrayOnDeletion(bookId);
+            temp = 1;
         }
-        if (temp == -1) {
-            System.out.println("Book delete transaction failed!");
+        if (temp == 0) {
+            System.out.println("There is no book that can be erased!");
         }
-
     }
 
     public static void truncateBooksArrayOnDeletion(String bookId) {
@@ -160,34 +152,5 @@ public class Main {
             System.out.println("Truncate Books and Array On Deletion transaction failed!");
         }
 
-    }
-
-    public static void extendBooksArrayOnAddition(String title, String author, String bookId, String additionalDoc) {
-        int temp = -1, i, j;
-        if (bookQuantity < Index) {
-            for (i = 0; i < bookQuantity; i++) {
-                if (books[i][2].equals(bookId)) {
-                    bookQuantity = bookQuantity + 1;
-                    String[][] booksNew = new String[bookQuantity][4];
-                    for (j = 0; j < bookQuantity - 1; i++) {
-                        booksNew[j][0] = books[i][0];
-                        booksNew[j][1] = books[i][1];
-                        booksNew[j][2] = books[i][2];
-                        booksNew[j][3] = books[i][3];
-                    }
-
-                    booksNew[bookQuantity - 1][0] = title;
-                    booksNew[bookQuantity - 1][1] = author;
-                    booksNew[bookQuantity - 1][2] = bookId;
-                    booksNew[bookQuantity - 1][3] = additionalDoc;
-
-                    books = booksNew;
-                    System.out.println("Extend Books and Array On Addition transaction successful");
-                }
-            }
-            if (temp == -1) {
-                System.out.println("Extend Books and Array On Addition transaction failed!");
-            }
-        }
     }
 }
