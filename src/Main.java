@@ -99,17 +99,17 @@ public class Main {
     public static void updateBook(String title, String author, String bookId, String additionalDoc){
         int temp=-1;
         for(int i=0 ; i<bookQuantity ; i++){
-            if(books[i][0].equals(title) || books[i][2].equals(booId)){
+            if(books[i][2].equals(bookId)){
                 books[i][0]=title;
                 books[i][1]=author;
                 books[i][2]=bookId;
                 books[i][3]=additionalDoc;
-                System.out.println("Book update transaction failed");
+                System.out.println("Book update transaction successful");
                 temp=i;
             }
         }
-        if(temp==i){
-            System.out.println("Book update transaction failed");
+        if(temp==-1){
+            System.out.println("Book update transaction failed!");
         }
     }
 }
