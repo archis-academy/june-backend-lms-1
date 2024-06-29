@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 public class Main {
     static int Index = 50;
     static String[][] books = new String[Index][4]; // title , author , id , additional doc.
-    static String[][] users = new String[Index][4];
+    static String[][] users = new String[Index][4]; // user name, user id, email, password
     static String[][] transactions = new String[Index][4]; // userId , bookId , date , status
     static int bookQuantity = 0;
     static int transactionQuantity = 0;
@@ -14,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
     }
 
+    
     public static void addBook(String title, String author, String bookId, String additionalDoc){
         if(bookQuantity < Index){
             books[bookQuantity][0] = title;
@@ -28,6 +29,31 @@ public class Main {
             System.out.println("We cannot add books to shelves that are already full!");
 
         }
+    }
+
+    public static void updateUserInfo(String userName, String userId, String email, String password ){
+        int userIndex = getUserIndexById(userId);
+        if (userIndex >= 0) {
+            users[userIndex][0] = userName;
+            users[userIndex][1] = userId;
+            users[userIndex][2] = email;
+            users[userIndex][3] = password;
+
+            System.out.println("User information has been updated successfully.");}
+        else 
+        {
+            System.out.println("User not found!");
+        }}
+
+
+    public static int getUserIndexById(String userId){
+            int indexOfUser = -1;
+            for (int i = 0; i < userQuantity; i++) {
+            if (userId.equals(users[i][1])) {
+            indexOfUser = i;
+            break;
+            }}
+            return indexOfUser;
     }
 
     public static void viewAvailableBooks() {
@@ -63,4 +89,4 @@ public class Main {
         }
         if (!found) {
             System.out.println("The book is not found.");}
-    }
+    }}
