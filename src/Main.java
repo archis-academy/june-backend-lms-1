@@ -34,6 +34,21 @@ public class Main {
         }
     }
 
+    public static void checkBookReturnDeadline(){
+        LocalDate currentDate = LocalDate.now();
+        LocalDate returnDeadline = currentDate.plusMonths(1); // 1 month later 
+        
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedReturnDeadline = returnDeadline.format(dateFormatter);
+        System.out.println("Book return deadline: " + formattedReturnDeadline);
+
+        if (currentDate.isAfter(returnDeadline)) {
+            System.out.println("The book return deadline has passed. User cannot take book.");
+        } else {
+            System.out.println("User can take book.");
+        }
+    }
+
     public static void viewAvailableBooks() {
         if (bookQuantity == 0) {
             System.out.println("There isn't available books!");
@@ -189,7 +204,7 @@ public class Main {
             if (temp == -1) {
                 System.out.println("Extend Books and Array On Addition transaction failed!");
             }
-        }
+        }}
 
     public static void returnbook(String userId, String bookId) {
         int temp = -1, i;
@@ -242,4 +257,4 @@ public class Main {
             System.out.println("Truncate Books and Array On Deletion transaction failed!");
         }
 
-    }
+    }}
