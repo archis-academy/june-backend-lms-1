@@ -419,5 +419,38 @@ public class Main {
 
     }
 
+    public static void generateReports() {
+        int i, j, k;
+        System.out.println("Total book number:" + bookQuantity);
+        System.out.println("\n");
+        for (i = 0; i < bookQuantity; i++) {
+            System.out.println("Book Title:" + books[i][0]);
+            System.out.println("Book Id:" + books[i][1]);
+            System.out.println("Book Author:" + books[i][2]);
+            System.out.println("Book Additional Doc.:" + books[i][3]);
+            System.out.println("\n");
+        }
+
+        System.out.println("\nTotal user number:" + userQuantity);
+        System.out.println("\n");
+        for (j = 0; j < userQuantity; j++) {
+            System.out.println("User Id:" + books[j][0]);
+            System.out.println("User Name:" + books[j][1]);
+            System.out.println("User email:" + books[j][2]);
+            System.out.println("User Password:" + books[j][3]);
+            System.out.println("\n");
+        }
+
+        System.out.println("\nTotal transaction number:" + transactionQuantity);
+        System.out.println("\n");
+        for (k = 0; k < transactionQuantity; k++) {
+            System.out.println("User Id:" + books[k][0]);
+            System.out.println("Book Id:" + books[k][1]);
+            System.out.println("Date:" + books[k][2]);
+            System.out.println("Status:" + books[k][3]);
+            System.out.println("\n");
+        }
+    }
+
 
 }
