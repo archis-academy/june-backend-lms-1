@@ -251,6 +251,20 @@ public class Main {
         return -1;
     }
 
+    public static boolean checkUserEligibilityForCheckout() {
+        System.out.println("User Id:");
+        String userId = scanner.nextLine();
+    
+        if (!checkBookReturnDeadline(userId)) {
+            System.out.println("You have an overdue book. You cannot borrow more books until you return the overdue book.");
+            return false;
+        } else {
+            System.out.println("You are eligible to borrow books.");
+            return true;
+        }
+    }
+
+
     public static void extendBooksArrayOnAddition(String title, String author, String bookId, String additionalDoc) {
         int temp = -1, i, j;
         if (Index <= bookQuantity) {
